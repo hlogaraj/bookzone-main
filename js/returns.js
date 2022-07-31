@@ -86,8 +86,8 @@ function returnItems(e) {
                 }
             }
         }
-        console.log('ordered items: ' + orderedItems);
-        console.log('returned items: ' + returningItems);
+        console.log(orderedItems);
+        console.log(returningItems);
     }
     localStorage.setItem('orderedItems', JSON.stringify(orderedItems));
     location.reload();

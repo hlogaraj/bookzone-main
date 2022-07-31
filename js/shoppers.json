@@ -9,7 +9,7 @@
 		    "ZIP": "zipCode",
 		    "email": "email",
 		    "phoneNumber": "phone",
-		    "textConsent": "texts"
+		    "textConsent": "true"
         }
     }
 ]

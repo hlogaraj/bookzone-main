@@ -9,7 +9,6 @@ var streetAddressField = document.getElementById("street-address");
 var cityField = document.getElementById("city");
 var stateField = document.getElementById("state");
 var zipCodeField = document.getElementById("zip-code");
-var emailField = document.getElementById("email");
 var phoneNumberField = document.getElementById("phone-number");
 var textConsent = document.getElementById("texts");
 
@@ -38,6 +37,16 @@ if (localStorage.getItem("shoppers") != null) {
 }
 
 var shopper = shoppers[shoppers.length - 1]; //find last shopper in shoppers
+var email = Object.keys(shopper)[0];
+var shopperInfo = shopper[email];
+var firstName = shopperInfo.firstName;
+var lastName = shopperInfo.lastName;
+var streetAddress = shopperInfo.streetAddress;
+var city = shopperInfo.city;
+var state = shopperInfo.state;
+var zipCode = shopperInfo.ZIP;
+var phoneNumber = shopperInfo.phoneNumber;
+var textConsent = shopperInfo.textConsent;
 
 
 function enableForm(e) {;
