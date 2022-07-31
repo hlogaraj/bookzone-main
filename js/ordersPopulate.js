@@ -1,5 +1,12 @@
 var orderedItems = JSON.parse(localStorage.getItem("orderedItems"));
 var products;
+var returnButton = document.getElementById("return-button");
+var ordersTable = document.getElementById("ordered-items");
+var rows = Array.from(ordersTable.childNodes);
+rows.splice(0, 1); //remove row of headers
+var returnItems = new Array();
+
+returnButton.addEventListener("click", returnItems);
 
 if (localStorage.getItem("products") != null) {
     products = JSON.parse(localStorage.getItem("products"));
@@ -52,6 +59,33 @@ if (orderedItems != null) {
             table.appendChild(row);
         }
     }
+}
+
+function returnItems(e) {
+    console.log('button clicked');
+    for (let i = 0; i < rows.length; i++) {
+        let row = rows[i];
+        let children = Array.from(row.childNodes);
+        let checkbox = children[0];
+        let name = children[1];
+        if (checkbox.checked == "true") {
+            returnItems.push(products[name]); //add product object to return items array
+            for (let j = 0; j < orderedItems.length; j++) {
+                let item = orderedItems[j];
+                if (item.name == name) {
+                    if (item.quantity > 1) {
+                        item.quantity -= 1; //decrement from ordered quantity if multiple ordered
+                    } else {
+                        orderedItems.splice(j, 1); // remove return item from ordered items list if only 1
+                    }
+                    console.log('return started');
+                    console.log('ordered items' + orderedItems);
+                }
+            }
+        }
+    }
+    localStorage.setItem('orderedItems', JSON.stringify(orderedItems));
+    location.reload();
 }
 
 
