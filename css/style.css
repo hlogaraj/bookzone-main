@@ -148,14 +148,14 @@ a:hover, a:hover h1 {
 	color: rgb(0, 85, 255);
 	text-decoration-color: rgb(0, 85, 255);
 }
-.signup-form, .new-product-form, .update-product-form, .checkout-form, .ordered-items, #cart-items{
+.signup-form, .new-product-form, .update-product-form, .checkout-form, .ordered-items, #cart-items, .edit-billing-form{
 	position: relative;
 	padding: 2em;
 	background: rgba(0, 85, 255,.07);
 	border-radius: 10px;
 }
 
-.submit-button, .return-button {
+.submit-button, .return-button, .edit-billing-button, .update-billing-button {
 	background: rgb(0, 85, 255);
 	color: white;
 }
