@@ -27,7 +27,7 @@ if (orderedItems != null) {
             let quantityData = document.createElement("td");
             quantityData.innerHTML = quantity;
             let priceData = document.createElement("td");
-            priceData.innerHTML = "$" + qtyPrice;
+            priceData.innerHTML = "$" + price;
             row.appendChild(checkmark);
             row.appendChild(nameData);
             row.appendChild(quantityData);
