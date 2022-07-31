@@ -69,7 +69,7 @@ function returnItems(e) {
     console.log('button clicked');
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
-        let children = row.childNodes;
+        let children = Array.from(row.childNodes);
         let checkbox = children[0];
         let itemName = children[1];
         if (checkbox.checked == "true") {
