@@ -2,15 +2,11 @@ var orderedItems = JSON.parse(localStorage.getItem("orderedItems"));
 var products;
 var returnButton = document.getElementById("return-button");
 var returningItems = new Array();
-if (returnButton != null) {
-    console.log('button found');
-}
 var ordersTable = document.getElementById("ordered-items");
 var rows = Array.from(ordersTable.childNodes);
 rows.splice(0, 1); //remove row of headers
 
 returnButton.addEventListener("click", returnItems);
-console.log('listener added');
 
 if (localStorage.getItem("products") != null) {
     products = JSON.parse(localStorage.getItem("products"));
@@ -66,7 +62,6 @@ if (orderedItems != null) {
 }
 
 function returnItems(e) {
-    console.log('button clicked');
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
         let children = Array.from(row.childNodes);
