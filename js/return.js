@@ -23,7 +23,6 @@ for (let i = 0; i < rows.length; i++) {
 }
 console.log(returnItems);
 
-
 if (window.XMLHttpRequest) {
     request = new XMLHttpRequest();
 } else {
