@@ -1,8 +1,8 @@
 var ordersTable = document.getElementById("ordered-items");
-var rows = ordersTable.childNodes();
+var rows = Array.from(ordersTable.children());
 var returnItems = new Array();
 
-var products 
+var products;
 
 for (let row in rows) {
     let children = row.childNodes();
@@ -15,6 +15,7 @@ for (let row in rows) {
 }
 console.log(returnItems);
 
+/*
 if (window.XMLHttpRequest) {
     request = new XMLHttpRequest();
 } else {
