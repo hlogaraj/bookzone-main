@@ -67,12 +67,12 @@ function returnItems(e) {
         let row = rows[i];
         let children = Array.from(row.childNodes);
         let checkbox = children[0];
-        let name = children[1];
+        let itemName = children[1];
         if (checkbox.checked == "true") {
-            returnItems.push(products[name]); //add product object to return items array
+            returnItems.push(products[itemName]); //add product object to return items array
             for (let j = 0; j < orderedItems.length; j++) {
                 let item = orderedItems[j];
-                if (item.name == name) {
+                if (item.name == itemName) {
                     if (item.quantity > 1) {
                         item.quantity -= 1; //decrement from ordered quantity if multiple ordered
                     } else {
