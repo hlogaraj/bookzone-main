@@ -155,7 +155,7 @@ a:hover, a:hover h1 {
 	border-radius: 10px;
 }
 
-.submit-button {
+.submit-button, .return-button {
 	background: rgb(0, 85, 255);
 	color: white;
 }
