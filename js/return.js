@@ -6,16 +6,17 @@ var returnItems = new Array();
 
 var products;
 
-for (let row in rows) {
-    let children = row.childNodes;;
+for (let i = 0; i < rows.length; i++) {
+    let row = rows[i];
+    let children = Array.from(row.childNodes);
     let checkbox = children[0];
     let name = children[1];
     if (checkbox.checked == "true") {
         returnItems.push(products[name]); //add product object to return items array
-        for (let i = 0; i < orderedItems.length; i++) { //remove return item from ordered items
-            let item = orderedItems[i];
+        for (let j = 0; j < orderedItems.length; j++) {
+            let item = orderedItems[j];
             if (item.name == name) {
-                orderedItems.splice(i, 1);
+                orderedItems.splice(j, 1); //remove return item from ordered items
             }
         }
     }
