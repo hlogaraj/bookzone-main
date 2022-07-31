@@ -13,21 +13,27 @@ returnButton.addEventListener("click", returnItems)
 
 var products;
 
-if (window.XMLHttpRequest) {
-    request = new XMLHttpRequest();
+if (localStorage.getItem("products") != null) {
+    products = JSON.parse(localStorage.getItem("products"));
+    console.log("product catalog lodaded locally");
 } else {
-    request = new ActiveXObject("Microsoft.XMLHTTP");
-}
-
-request.open('GET', 'js/products.json');
-request.onreadystatechange = function () {
-    if ((request.status === 200) && (request.readyState === 4)) {
-        let json = JSON.parse(request.responseText);
-        products = json[0];
-        localStorage.setItem('products', JSON.stringify(products)); //save JSON string to local storage
-        console.log("Products loaded externally");
-        console.log(products);
+    if (window.XMLHttpRequest) {
+        request = new XMLHttpRequest();
+    } else {
+        request = new ActiveXObject("Microsoft.XMLHTTP");
     }
+    
+    request.open('GET', 'js/products.json');
+    request.onreadystatechange = function () {
+        if ((request.status === 200) && (request.readyState === 4)) {
+            let json = JSON.parse(request.responseText);
+            products = json[0];
+            localStorage.setItem('products', JSON.stringify(products)); //save JSON string to local storage
+            console.log("Products loaded externally");
+            console.log(products);
+        }
+    }
+    
 }
 
 function returnItems(e) {
