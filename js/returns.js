@@ -7,7 +7,6 @@ if (returnButton != null) {
 var ordersTable = document.getElementById("ordered-items");
 var rows = Array.from(ordersTable.childNodes);
 rows.splice(0, 1); //remove row of headers
-var returnItems = new Array();
 
 returnButton.addEventListener("click", returnItems);
 console.log('listener added');
