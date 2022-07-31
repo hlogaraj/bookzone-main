@@ -15,7 +15,7 @@ var products;
 
 if (localStorage.getItem("products") != null) {
     products = JSON.parse(localStorage.getItem("products"));
-    console.log("product catalog lodaded locally");
+    console.log("product catalog loaded locally");
 } else {
     if (window.XMLHttpRequest) {
         request = new XMLHttpRequest();
