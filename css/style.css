@@ -155,16 +155,6 @@ a:hover, a:hover h1 {
 	border-radius: 10px;
 }
 
-table {
-	border-collapse: collapse !important; 
-	border-spacing: 0;
-	border: 0px;
-}
-
-tr {
-	background-color:none;
-}
-
 .submit-button {
 	background: rgb(0, 85, 255);
 	color: white;
@@ -181,21 +171,20 @@ tr {
 }
 
 table {
-	font-family: arial, sans-serif;
+	font-family: 'Zen Kaku Gothic New', sans-serif;
 	border-collapse: collapse;
 	width: 100%;
   }
   
   td, th {
-	border: 1px solid #dddddd;
+	border-style: none;
 	text-align: left;
 	padding: 8px;
   }
   
   tr:nth-child(even) {
-	background-color: #dddddd;
+	background-color: rgba(0, 85, 255,.07);
   }
-
   .product-listing {
 	position: relative;
   }
