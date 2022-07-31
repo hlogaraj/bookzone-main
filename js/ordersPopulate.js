@@ -30,10 +30,10 @@ if (orderedItems != null) {
             quantityData.innerHTML = quantity;
             let priceData = document.createElement("td");
             priceData.innerHTML = "$" + price;
-            row.appendChild(checkmark);
-            row.appendChild(nameData);
-            row.appendChild(quantityData);
-            row.appendChild(priceData);
+            row.appendChild(document.createElement("td").appendChild(checkmark));
+            row.appendChild(document.createElement("td").appendChild(nameData));
+            row.appendChild(document.createElement("td").appendChild(quantityData));
+            row.appendChild(document.createElement("td").appendChild(priceData));
             table.appendChild(row);
         }
     }
