@@ -3,12 +3,12 @@
         "example@example.com" : {
             "firstName": "firstName",
 		    "lastName": "lastName",
-		    "streetAddress": "streetAddress",
+		    "streetAddress": "123 streetAddress",
 		    "city": "city",
-		    "state": "state",
-		    "ZIP": "zipCode",
-		    "email": "email",
-		    "phoneNumber": "phone",
+		    "state": "PA",
+		    "ZIP": "99999",
+		    "email": "example@example.com",
+		    "phoneNumber": "0000000000",
 		    "textConsent": "true"
         }
     }
