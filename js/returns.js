@@ -10,7 +10,7 @@ returnButton.addEventListener("click", returnItems);
 
 if (localStorage.getItem("products") != null) {
     products = JSON.parse(localStorage.getItem("products"));
-    console.log("product catalog lodaded locally");
+    console.log("product catalog loaded locally");
 } else {
     if (window.XMLHttpRequest) {
         request = new XMLHttpRequest();
@@ -61,7 +61,7 @@ if (orderedItems != null) {
     }
 }
 
-function returnItems(e) {
+function returnItems() {
     console.log('button clicked');
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
