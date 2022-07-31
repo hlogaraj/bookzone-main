@@ -1,6 +1,7 @@
 var orderedItems = JSON.parse(localStorage.getItem("orderedItems"));
 var ordersTable = document.getElementById("ordered-items");
-var rows = Array.from(ordersTable.children());
+var rows = Array.from(ordersTable.childNodes());
+rows.splice(0,1);
 var returnItems = new Array();
 
 var products;
