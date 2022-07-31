@@ -14,7 +14,7 @@ for (let row in rows) {
 }
 console.log(returnItems);
 
-/*
+
 if (window.XMLHttpRequest) {
     request = new XMLHttpRequest();
 } else {
@@ -31,4 +31,3 @@ request.onreadystatechange = function () {
         console.log(products);
     }
 }
-*/
