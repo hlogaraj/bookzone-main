@@ -148,12 +148,23 @@ a:hover, a:hover h1 {
 	color: rgb(0, 85, 255);
 	text-decoration-color: rgb(0, 85, 255);
 }
-.signup-form, .new-product-form, .update-product-form, .checkout-form, .ordered-items{
+.signup-form, .new-product-form, .update-product-form, .checkout-form, .ordered-items, #cart-items{
 	position: relative;
 	padding: 2em;
 	background: rgba(0, 85, 255,.07);
 	border-radius: 10px;
 }
+
+table {
+	border-collapse: collapse !important; 
+	border-spacing: 0;
+	border: 0px;
+}
+
+tr {
+	background-color:none;
+}
+
 .submit-button {
 	background: rgb(0, 85, 255);
 	color: white;
