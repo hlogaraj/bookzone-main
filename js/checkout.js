@@ -71,6 +71,7 @@ function shippingToJSON(shippingInfo) { //takes care of storing values of the in
 
 function orderToJSON(cartItems) {
 	localStorage.setItem('orderedItems', JSON.stringify(cartItems)); //save ordered items as JSON string
+	localStorage.removeItem('cartItems'); //empty the cart
 }
 function validateShippingInfo(e) {
 	let valid = true;
@@ -101,7 +102,7 @@ function validateShippingInfo(e) {
 		e.preventDefault();
 	} else {
 		shippingInfo = shippingToJSON(shippingInfo); //after inputs are confirmed valid, executes function to store values into JSON objct
-		orderToJSON(cartItems);
+		orderToJSON(cartItems); //save cart items as ordered items JSON string
 		console.log("Shipping Info Received");
 		console.log(shippingInfo); //used to check successful storage of inputs
 		location.reload();
