@@ -37,7 +37,8 @@ if (localStorage.getItem("shoppers") != null) {
 }
 
 var shopper = shoppers[shoppers.length - 1]; //find last shopper in shoppers
-var email = Object.keys(shopper)[0];
+var keys = Object.keys(shopper);
+var email = keys[0];
 var shopperInfo = shopper[email];
 var firstName = shopperInfo.firstName;
 var lastName = shopperInfo.lastName;
