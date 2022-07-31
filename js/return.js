@@ -10,7 +10,6 @@ for (let row in rows) {
     let name = children[1];
     if (checkbox.checked == "true") {
         returnItems.push(products[name]);
-
     }
 }
 console.log(returnItems);
@@ -32,3 +31,4 @@ request.onreadystatechange = function () {
         console.log(products);
     }
 }
+*/
