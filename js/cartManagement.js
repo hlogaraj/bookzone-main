@@ -4,9 +4,9 @@ var products;
 var cartItems = new Array();
 
 
-if (localStorage.getItem("cart items") != null) {
+if (localStorage.getItem("cartItems") != null) {
     try {
-        cartItems = JSON.parse(localStorage.getItem("cart items"));
+        cartItems = JSON.parse(localStorage.getItem("cartItems"));
         console.log("cart items found");
         console.log(cartItems);
     }
@@ -59,7 +59,7 @@ function addToCart(listing) {
         }
         cartItems.push(item);
     }
-    localStorage.setItem("cart items", JSON.stringify(cartItems)); //save JSON string to local storage
+    localStorage.setItem("cartItems", JSON.stringify(cartItems)); //save JSON string to local storage
     console.log(cartItems);
 }
 

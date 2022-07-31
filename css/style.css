@@ -139,6 +139,9 @@ a:hover, a:hover h1 {
 	color: rgb(0, 85, 255);
 	text-decoration-color: rgb(0, 85, 255);
 }
+.product-listing:hover {
+	cursor: pointer;
+}
 .dropdown-content a:hover p {
 	transform: scale(1.2, 1.2);
 	cursor: pointer;

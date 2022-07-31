@@ -1,6 +1,6 @@
 var startCheckout = document.getElementById("start-checkout-button");
 var finishCheckout = document.getElementById("finish-checkout-button");
-var cartItems = JSON.parse(localStorage.getItem("cart items"));
+var cartItems = JSON.parse(localStorage.getItem("cartItems"));
 
 var firstNameField = document.getElementById("first-name");
 var lastNameField = document.getElementById("last-name");
