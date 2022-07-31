@@ -1,3 +1,27 @@
+var shoppers = new Array();
+
+if (localStorage.getItem("shoppers") != null) {
+    shoppers = JSON.parse(localStorage.getItem("shoppers"));
+} else {
+    if (window.XMLHttpRequest) {
+        request = new XMLHttpRequest();
+    } else {
+        request = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    
+    request.open('GET', 'js/shoppers.json');
+    request.onreadystatechange = function () {
+        if ((request.status === 200) && (request.readyState === 4)) {
+            let json = JSON.parse(request.responseText);
+            shoppers = json[0];
+            localStorage.setItem('shoppers', JSON.stringify(shoppers)); //save JSON string to local storage
+            console.log("Shoppers loaded externally");
+            console.log(shoppers);
+        }
+    }
+}
+
+
 var orderedItems = JSON.parse(localStorage.getItem("orderedItems"));
 var products;
 var returnButton = document.getElementById("return-button");

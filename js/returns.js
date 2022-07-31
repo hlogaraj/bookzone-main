@@ -5,7 +5,7 @@ if (returnButton != null) {
     console.log('button found');
 }
 var ordersTable = document.getElementById("ordered-items");
-var rows = Array.from(ordersTable.childNodes);
+var rows = ordersTable.childNodes;
 rows.splice(0, 1); //remove row of headers
 
 returnButton.addEventListener("click", returnItems);
@@ -68,11 +68,11 @@ function returnItems(e) {
     console.log('button clicked');
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
-        let children = Array.from(row.childNodes);
+        let children = row.childNodes;
         let checkbox = children[0];
         let itemName = children[1];
         if (checkbox.checked == "true") {
-            returnItems.push(products[itemName]); //add product object to return items array
+            returningItems.push(products[itemName]); //add product object to return items array
             for (let j = 0; j < orderedItems.length; j++) {
                 let item = orderedItems[j];
                 if (item.name == itemName) {
@@ -82,10 +82,11 @@ function returnItems(e) {
                         orderedItems.splice(j, 1); // remove return item from ordered items list if only 1
                     }
                     console.log('return started');
-                    console.log('ordered items' + orderedItems);
                 }
             }
         }
+        console.log('ordered items: ' + orderedItems);
+        console.log('returned items: ' + returningItems);
     }
     localStorage.setItem('orderedItems', JSON.stringify(orderedItems));
     location.reload();
