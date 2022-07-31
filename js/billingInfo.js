@@ -1,4 +1,20 @@
 var shoppers = new Array();
+var shopperInfo = new Object();
+var editButton = document.getElementById("edit-billing-button");
+var saveButton = document.getElementById("update-billing-button");
+
+var firstNameField = document.getElementById("first-name");
+var lastNameField = document.getElementById("last-name");
+var streetAddressField = document.getElementById("street-address");
+var cityField = document.getElementById("city");
+var stateField = document.getElementById("state");
+var zipCodeField = document.getElementById("zip-code");
+var emailField = document.getElementById("email");
+var phoneNumberField = document.getElementById("phone-number");
+var textConsent = document.getElementById("texts");
+
+editButton.addEventListener("click", enableForm);
+saveButton.addEventListener("click", updateBilling)
 
 if (localStorage.getItem("shoppers") != null) {
     shoppers = JSON.parse(localStorage.getItem("shoppers"));
@@ -21,100 +37,146 @@ if (localStorage.getItem("shoppers") != null) {
     }
 }
 
-
-var orderedItems = JSON.parse(localStorage.getItem("orderedItems"));
-var products;
-var returnButton = document.getElementById("return-button");
-if (returnButton != null) {
-    console.log('button found');
-}
-var ordersTable = document.getElementById("ordered-items");
-var rows = Array.from(ordersTable.childNodes);
-rows.splice(0, 1); //remove row of headers
-var returnItems = new Array();
-
-returnButton.addEventListener("click", returnItems);
-console.log('listener added');
-
-if (localStorage.getItem("products") != null) {
-    products = JSON.parse(localStorage.getItem("products"));
-    console.log("product catalog loaded locally");
-} else {
-    if (window.XMLHttpRequest) {
-        request = new XMLHttpRequest();
-    } else {
-        request = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    
-    request.open('GET', 'js/products.json');
-    request.onreadystatechange = function () {
-        if ((request.status === 200) && (request.readyState === 4)) {
-            let json = JSON.parse(request.responseText);
-            products = json[0];
-            localStorage.setItem('products', JSON.stringify(products)); //save JSON string to local storage
-            console.log("Products loaded externally");
-            console.log(products);
+function enableForm(e) {;
+    let fields = document.querySelectorAll(input);
+    for (let i = 0; i < fields.length; i++) { //unlock fields
+        if (fields[i].disabled == "true") {
+            fields[i].disabled = "false";
         }
     }
-    
+    editButton.style.display = "none";
+    saveButton.style.display = "block";
 }
 
-if (orderedItems != null) {
-    console.log("ordered items found");
-    let table = document.getElementById("ordered-items");
-    var totalPrice = 0;
-    for (let i = 0; i < orderedItems.length; i++) {
-        let item = orderedItems[i];
-        let name = String(item.name);
-        let quantity = parseInt(item.quantity);
-        let price = parseFloat(item.price);
-
-        for (let j = 0; j < quantity; j++) {
-            let row = document.createElement("tr");
-            row.id = name;
-            let checkmark = document.createElement("input");
-            checkmark.type = "checkbox";
-            checkmark.style.textAlign = "center";
-            checkmark.style.verticalAlign = "middle";
-            checkmark.id = name + String(j);
-            let nameData = document.createElement("td");
-            nameData.innerHTML = name;
-            let priceData = document.createElement("td");
-            priceData.innerHTML = "$" + price;
-            row.appendChild(document.createElement("td").appendChild(checkmark));
-            row.appendChild(document.createElement("td").appendChild(nameData));
-            row.appendChild(document.createElement("td").appendChild(priceData));
-            table.appendChild(row);
+function disableForm() {;
+    let fields = document.querySelectorAll(input);
+    for (let i = 0; i < fields.length; i++) { //lock fields
+        if (fields[i].disabled == "false") {
+            fields[i].disabled = "true";
         }
     }
-    console.log("ordered items added");
+    editButton.style.display = "block";
+    saveButton.style.display = "none";
 }
 
-function returnItems(e) {
-    console.log('button clicked');
-    for (let i = 0; i < rows.length; i++) {
-        let row = rows[i];
-        let children = Array.from(row.childNodes);
-        let checkbox = children[0];
-        let itemName = children[1];
-        if (checkbox.checked == "true") {
-            returnItems.push(products[itemName]); //add product object to return items array
-            for (let j = 0; j < orderedItems.length; j++) {
-                let item = orderedItems[j];
-                if (item.name == itemName) {
-                    if (item.quantity > 1) {
-                        item.quantity -= 1; //decrement from ordered quantity if multiple ordered
-                    } else {
-                        orderedItems.splice(j, 1); // remove return item from ordered items list if only 1
-                    }
-                    console.log('return started');
-                    console.log('ordered items' + orderedItems);
-                }
-            }
-        }
+function updateBilling(e) {
+    if (validateShopper == true) {
+        updateToJSON(shopperInfo); //save new info to JSON string
+        disableForm();
     }
-    localStorage.setItem('orderedItems', JSON.stringify(orderedItems));
-    location.reload();
 }
 
+firstNameField.addEventListener("click", function () { hideError(firstNameField); });
+lastNameField.addEventListener("click", function () { hideError(lastNameField); });
+streetAddressField.addEventListener("click", function () { hideError(streetAddressField); });
+cityField.addEventListener("click", function () { hideError(cityField); });
+stateField.addEventListener("click", function () { hideError(stateField); });
+zipCodeField.addEventListener("click", function () { hideError(zipCodeField); });
+emailField.addEventListener("click", function () { hideError(emailField); });
+phoneNumberField.addEventListener("click", function () { hideError(phoneNumberField); });
+submitUser.addEventListener("click", validateShopper);
 
+function updateToJSON(shopperInfo) { //takes care of storing values of the input fields into a JSON object passed as an argument
+	var firstName = firstNameField.value;
+	var lastName = lastNameField.value;
+	var streetAddress = streetAddressField.value;
+	var city = cityField.value;
+	var state = stateField.value;
+	var zipCode = zipCodeField.value;
+	var email = emailField.value;
+	var phone = phoneNumberField.value;
+	var texts = textConsent.checked;
+	shopperInfo = {
+		"firstName": firstName,
+		"lastName": lastName,
+		"streetAddress": streetAddress,
+		"city": city,
+		"state": state,
+		"ZIP": zipCode,
+		"email": email,
+		"phoneNumber": phone,
+		"textConsent": texts
+	}
+    shoppers[email] = shopperInfo;
+    localStorage.setItem("shoppers", JSON.stringify(shoppers));
+    console.log("billing updated");
+}
+
+function validateShopper() {
+	let valid = true;
+
+	valid = valid && validateName(firstNameField);
+	valid = valid && validateName(lastNameField);
+	valid = valid && validateName(cityField);
+	valid = valid && validateStreetAddress();
+	valid = valid && validateDropDown(stateField);
+	valid = valid && validateZipCode();
+	valid = valid && validatePhoneNumber();
+	flagName(firstNameField);
+	flagName(lastNameField);
+	flagName(cityField);
+	flagStreetAddress();
+	flagDropDown(stateField);
+	flagZipCode();
+	flagPhoneNumber();
+
+    return valid;
+}
+
+function validateName(target) {
+	return /^[a-zA-Z\-\.\s]+$/.test(target.value);
+}
+
+function flagName(target) {
+	if (!validateName(target)) {
+		showError(target);
+	}
+}
+
+function validateStreetAddress() {
+	return /^\d+\s[A-z]+\s[A-z]+/.test(streetAddressField.value);
+}
+
+function flagStreetAddress() {
+	if (!validateStreetAddress()) {
+		showError(streetAddressField);
+	}
+}
+
+function validateDropDown(field) {
+	return (field.value != "none");
+}
+
+function flagDropDown(field) {
+	if (!validateDropDown(field)) {
+		showError(field);
+	}
+}
+
+function validateZipCode() {
+	return /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipCodeField.value);
+}
+
+function flagZipCode() {
+	if (!validateZipCode()) {
+		showError(zipCodeField);
+	}
+}
+
+function validatePhoneNumber() {
+	return (phoneNumberField.value.length == 0 || (phoneNumberField.value.length == 10 && /^\d+$/.test(phoneNumberField.value)));
+}
+
+function flagPhoneNumber() {
+	if (!validatePhoneNumber()) {
+		showError(phoneNumberField);
+	}
+}
+
+function showError(element) {
+	element.parentNode.getElementsByClassName("error")[0].classList.remove("hidden");
+}
+
+function hideError(element) {
+	element.parentNode.getElementsByClassName("error")[0].classList.add("hidden");
+}
