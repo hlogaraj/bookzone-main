@@ -17,6 +17,7 @@ saveButton.addEventListener("click", updateBilling)
 
 if (localStorage.getItem("shoppers") != null) {
     shoppers = JSON.parse(localStorage.getItem("shoppers"));
+    console.log("shoppers loaded locally");
 } else {
     if (window.XMLHttpRequest) {
         request = new XMLHttpRequest();
