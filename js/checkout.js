@@ -101,6 +101,7 @@ function validateShippingInfo(e) {
 		e.preventDefault();
 	} else {
 		shippingInfo = shippingToJSON(shippingInfo); //after inputs are confirmed valid, executes function to store values into JSON objct
+		orderToJSON(cartItems);
 		console.log("Shipping Info Received");
 		console.log(shippingInfo); //used to check successful storage of inputs
 	}
