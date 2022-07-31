@@ -1,6 +1,7 @@
 var orderedItems = JSON.parse(localStorage.getItem("orderedItems"));
 var products;
 var returnButton = document.getElementById("return-button");
+var returningItems = new Array();
 if (returnButton != null) {
     console.log('button found');
 }
