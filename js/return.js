@@ -1,4 +1,8 @@
-var orderedItems = JSON.parse(localStorage.getItem("orderedItems"));
+var orderedItems = [];
+if (localStorage.getItem("orderedItems") != null) {
+    orderedItems = JSON.parse(localStorage.getItem("orderedItems"));
+}
+
 var returnButton = document.getElementById("return-button");
 var ordersTable = document.getElementById("ordered-items");
 var rows = Array.from(ordersTable.childNodes);
@@ -8,6 +12,23 @@ var returnItems = new Array();
 returnButton.addEventListener("click", returnItems)
 
 var products;
+
+if (window.XMLHttpRequest) {
+    request = new XMLHttpRequest();
+} else {
+    request = new ActiveXObject("Microsoft.XMLHTTP");
+}
+
+request.open('GET', 'js/products.json');
+request.onreadystatechange = function () {
+    if ((request.status === 200) && (request.readyState === 4)) {
+        let json = JSON.parse(request.responseText);
+        products = json[0];
+        localStorage.setItem('products', JSON.stringify(products)); //save JSON string to local storage
+        console.log("Products loaded externally");
+        console.log(products);
+    }
+}
 
 function returnItems(e) {
     for (let i = 0; i < rows.length; i++) {
@@ -34,19 +55,3 @@ function returnItems(e) {
     location.reload();
 }
 
-if (window.XMLHttpRequest) {
-    request = new XMLHttpRequest();
-} else {
-    request = new ActiveXObject("Microsoft.XMLHTTP");
-}
-
-request.open('GET', 'js/products.json');
-request.onreadystatechange = function () {
-    if ((request.status === 200) && (request.readyState === 4)) {
-        let json = JSON.parse(request.responseText);
-        products = json[0];
-        localStorage.setItem('products', JSON.stringify(products)); //save JSON string to local storage
-        console.log("Products loaded externally");
-        console.log(products);
-    }
-}
