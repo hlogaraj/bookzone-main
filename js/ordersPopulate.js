@@ -26,13 +26,10 @@ if (orderedItems != null) {
             checkmark.id = name + String(j);
             let nameData = document.createElement("td");
             nameData.innerHTML = name;
-            let quantityData = document.createElement("td");
-            quantityData.innerHTML = quantity;
             let priceData = document.createElement("td");
             priceData.innerHTML = "$" + price;
             row.appendChild(document.createElement("td").appendChild(checkmark));
             row.appendChild(document.createElement("td").appendChild(nameData));
-            row.appendChild(document.createElement("td").appendChild(quantityData));
             row.appendChild(document.createElement("td").appendChild(priceData));
             table.appendChild(row);
         }
