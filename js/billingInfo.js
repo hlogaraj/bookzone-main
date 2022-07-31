@@ -10,7 +10,7 @@ var cityField = document.getElementById("city");
 var stateField = document.getElementById("state");
 var zipCodeField = document.getElementById("zip-code");
 var phoneNumberField = document.getElementById("phone-number");
-var textConsent = document.getElementById("texts");
+var textConsentField = document.getElementById("texts");
 
 editButton.addEventListener("click", enableForm);
 saveButton.addEventListener("click", updateBilling)
@@ -47,6 +47,15 @@ var state = shopperInfo.state;
 var zipCode = shopperInfo.ZIP;
 var phoneNumber = shopperInfo.phoneNumber;
 var textConsent = shopperInfo.textConsent;
+
+firstNameField.value = firstName;
+lastNameField.value = lastName;
+streetAddressField.value = streetAddress;
+cityField.value = city;
+stateField.value = state;
+zipCodeField.value = zipCode;
+phoneNumberField.value = phoneNumber;
+textConsentField.checked = textConsent;
 
 
 function enableForm(e) {;
