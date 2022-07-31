@@ -15,22 +15,25 @@ if (orderedItems != null) {
         let name = String(item.name);
         let quantity = parseInt(item.quantity);
         let price = parseFloat(item.price);
-        let qtyPrice = quantity * price;
-        qtyPrice = (Math.round(qtyPrice * 100) / 100).toFixed(2);
 
-        let row = document.createElement("tr");
-        row.id = name;
-        let nameData = document.createElement("td");
-        nameData.innerHTML = name;
-        let quantityData = document.createElement("td");
-        quantityData.innerHTML = quantity;
-        let priceData = document.createElement("td");
-        priceData.innerHTML = "$" + qtyPrice;
-        row.appendChild(nameData);
-        row.appendChild(quantityData);
-        row.appendChild(priceData);
-        table.appendChild(row);
-        totalPrice = parseFloat(totalPrice) + parseFloat(qtyPrice);
+        for (let j = 0; j < quantity; j++) {
+            let row = document.createElement("tr");
+            row.id = name;
+            let checkmark = document.createElement("input");
+            checkmark.type = "checkbox";
+            checkmark.id = name + String(j);
+            let nameData = document.createElement("td");
+            nameData.innerHTML = name;
+            let quantityData = document.createElement("td");
+            quantityData.innerHTML = quantity;
+            let priceData = document.createElement("td");
+            priceData.innerHTML = "$" + qtyPrice;
+            row.appendChild(checkmark);
+            row.appendChild(nameData);
+            row.appendChild(quantityData);
+            row.appendChild(priceData);
+            table.appendChild(row);
+        }
     }
 }
 
