@@ -97,9 +97,7 @@ streetAddressField.addEventListener("click", function () { hideError(streetAddre
 cityField.addEventListener("click", function () { hideError(cityField); });
 stateField.addEventListener("click", function () { hideError(stateField); });
 zipCodeField.addEventListener("click", function () { hideError(zipCodeField); });
-emailField.addEventListener("click", function () { hideError(emailField); });
 phoneNumberField.addEventListener("click", function () { hideError(phoneNumberField); });
-submitUser.addEventListener("click", validateShopper);
 
 function updateToJSON(shopperInfo) { //takes care of storing values of the input fields into a JSON object passed as an argument
 	var firstName = firstNameField.value;
