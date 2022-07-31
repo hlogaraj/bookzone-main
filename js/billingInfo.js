@@ -37,6 +37,9 @@ if (localStorage.getItem("shoppers") != null) {
     }
 }
 
+var shopper = shoppers[shoppers.length - 1]; //find last shopper in shoppers
+
+
 function enableForm(e) {;
     let fields = document.querySelectorAll(input);
     for (let i = 0; i < fields.length; i++) { //unlock fields
