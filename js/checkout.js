@@ -104,6 +104,7 @@ function validateShippingInfo(e) {
 		orderToJSON(cartItems);
 		console.log("Shipping Info Received");
 		console.log(shippingInfo); //used to check successful storage of inputs
+		location.reload();
 	}
 }
 
