@@ -37,6 +37,7 @@ if (localStorage.getItem("products") != null) {
 }
 
 function returnItems(e) {
+    console.log("button clicked");
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
         let children = Array.from(row.childNodes);
