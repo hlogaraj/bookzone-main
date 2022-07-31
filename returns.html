@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link rel = "stylesheet" type = "text/css" href="css/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Zen+Kaku+Gothic+New:wght@700&display=swap" rel="stylesheet">
+	<title>signup</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<header>
+			<h1 class="display-3 mb-0">Bookzone</h1>
+			<h3>By The SourceCoders</h3>
+			<nav>
+				<a href="index.html">
+					<p>Home</p>
+				</a>
+				<a href="new arrivals.html">
+					<p>New Arrivals</p>
+				</a>
+				<a href="best sellers.html">
+					<p>Best Sellers</p>
+				</a>
+				<a href="about us.html">
+					<p>About Us</p>
+				</a>
+				<a href="cart.html">
+					<p id="cart">Cart</p>
+				</a>
+				<div class = "dropdown">
+					<p id="account">My Account</p>
+					<div class = "dropdown-content">
+						<a href="billingInfo.html"> 
+							<p>Billing Information</p>
+						</a>
+						<a href = "returns.html">
+							<p>Orders/Returns</p>
+						</a>
+						<a href = "signup.html">
+							<p>Sign Up</p>
+						</a>
+					</div>
+				</div>
+			</nav>
+		</header>
+	</div>
+	<div class = "container p-4 w-50 mb-5">
+		<form class = "align-content-center ordered-items">
+			<div class = "row">
+				<div class = "mb-3">
+					<div class="container-fluid w-75 mb-5">
+						<h2 class = "text-center mt-5 mb-5">Select Items for Return</h2>
+						<table id = "cart-items">
+							<tr>
+								<th>Products</th>
+								<th>Quantity</th>
+								<th>Price</th>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>	
+			<button id = "submit-shopper-button" type = "button" class = "btn btn-lg btn-outline-dark submit-button">Submit</button>
+		</form>
+	</div>
+	<div class="container-fluid p-0 m-0">
+		<footer>
+			<p>555 Book Rd<br>
+				City, PA 99999</p>
+			<h2>
+				Get <span style="color:white;">Reading!</span>
+			</h2>
+			<a href="product management.html">
+				<p>Product Management</p>
+			</a>
+		</footer>
+	</div>
+	<script src = "js/shopperManagement.js"></script>
+</body>
+</html>

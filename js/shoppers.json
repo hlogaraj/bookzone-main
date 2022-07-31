@@ -1,0 +1,15 @@
+[
+    {
+        "example@example.com" : {
+            "firstName": "firstName",
+		    "lastName": "lastName",
+		    "streetAddress": "streetAddress",
+		    "city": "city",
+		    "state": "state",
+		    "ZIP": "zipCode",
+		    "email": "email",
+		    "phoneNumber": "phone",
+		    "textConsent": "texts"
+        }
+    }
+]

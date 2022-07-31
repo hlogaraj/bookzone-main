@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Zen+Kaku+Gothic+New:wght@700&display=swap"
+		rel="stylesheet">
+	<title>Product Management</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<header>
+			<h1 class="display-3 mb-0">Bookzone</h1>
+			<h3>By The SourceCoders</h3>
+			<nav>
+				<a href="index.html">
+					<p>Home</p>
+				</a>
+				<a href="new arrivals.html">
+					<p>New Arrivals</p>
+				</a>
+				<a href="best sellers.html">
+					<p>Best Sellers</p>
+				</a>
+				<a href="about us.html">
+					<p>About Us</p>
+				</a>
+				<a href="cart.html">
+					<p id="cart">Cart</p>
+				</a>
+				<div class = "dropdown">
+					<p id="account">My Account</p>
+					<div class = "dropdown-content">
+						<a href="billingInfo.html"> 
+							<p>Billing Information</p>
+						</a>
+						<a href = "returns.html">
+							<p>Orders/Returns</p>
+						</a>
+						<a href = "signup.html">
+							<p>Sign Up</p>
+						</a>
+					</div>
+				</div>
+			</nav>
+		</header>
+	</div>
+	<div class="container p-4 w-50 mb-5">
+		<form id="new-product-form" name="new-product-form" class="align-content-center new-product-form">
+			<div class="row">
+				<div class="mb-2">
+					<h2>Add New Product</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="mb-3">
+					<label class="form-label" for="new-title">Product Title</label>
+					<input class="form-control" type="text" id="new-title" name="new-title">
+					<p class="error hidden">Please enter a product title</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="mb-3 col-sm">
+					<label class="form-label" for="new-id">Product ID (4 digits)</label>
+					<input class="form-control" type="text" id="new-id" name="new-id">
+					<p class="error hidden">Please enter an unused 4-digit ID number</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="mb-3">
+					<label class="form-label" for="new-author">Author</label>
+					<input class="form-control" type="text" id="new-author" name="new-author">
+					<p class="error hidden">Please enter a valid author name (no numbers)</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="mb-3">
+					<label class="form-label" for="new-category">Product Category</label>
+					<select class="form-control" id="new-category" name="new-category">
+						<option value="none">Select a category</option>
+						<option value="trending">Trending</option>
+						<option value="new releases">New Releases</option>
+						<option value="top audibles">Top Audibles</option>
+					</select>
+					<p class="error hidden">Please select a product category</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="mb-3">
+					<label class="form-label" for="new-description">Description</label>
+					<input class="form-control" type="text" id="new-description" name="new-description" >
+					<p class="error hidden">Please enter a product description.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="mb-3">
+					<label class="form-label" for="new-quantity">Quantity</label>
+					<input class="form-control" type="number" id="new-quantity" name="new-quantity">
+					<p class="error hidden">Please enter number of product units</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="mb-3">
+					<label class="form-label" for="new-price">Price (USD)</label>
+					<input class="form-control" type="tel" id="new-price" name="new-price">
+					<p class="error hidden">Please enter a valid dollar amount</p>
+				</div>
+			</div>
+			<button id="submit-new-product-button" type="button"
+				class="btn btn-lg btn-outline-dark submit-button">Submit</button>
+		</form>
+	</div>
+	<div class="container p-4 w-50 mb-5">
+		<form id="update-product-form" name="update-product-form" class="align-content-center update-product-form">
+			<div class="row">
+				<div class="mb-2 align-content-center">
+					<h2>Update Product</h2>
+				</div>
+			</div>
+			<form class="align-content-center product-search">
+				<div class="row">
+					<div class="mb-3 col">
+						<label class="form-label" for="update-id">Search by product ID</label>
+						<input class="form-control" type="text" id="update-id" name="update-id">
+						<p class="error hidden">Product ID not recognized</p>
+					</div>
+				</div>
+				<button id="id-search-button" type="button"
+					class="btn btn-lg btn-outline-dark id-search-button">Search</button>
+			</form>
+			<div class="id-match hidden" id = "id-match">
+				<div class="row">
+					<div class="mb-3">
+						<label class="form-label" for="update-title">Product Title</label>
+						<input class="form-control" type="text" id="update-title" name="update-title">
+						<p class="error hidden">Please enter a product title</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="mb-3">
+						<label class="form-label" for="update-author">Author</label>
+						<input class="form-control" type="text" id="update-author" name="update-author">
+						<p class="error hidden">Please enter a valid author name (no numbers)</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="mb-3">
+						<label class="form-label" for="update-category">Product Category</label>
+						<select class="form-control" id="update-category" name="update-category">
+							<option value="none">Select a category</option>
+							<option value="trending">Trending</option>
+							<option value="new releases">New Releases</option>
+							<option value="top audibles">Top Audibles</option>
+						</select>
+						<p class="error hidden">Please select a product category</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="mb-3">
+						<label class="form-label" for="update-description">Description</label>
+						<input class="form-control" type="text" id="update-description" name="update-description">
+						<p class="error hidden">Please enter a product description.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="mb-3">
+						<label class="form-label" for="update-quantity">Quantity</label>
+						<input class="form-control" type="number" id="update-quantity" name="update-quantity">
+						<p class="error hidden">Please enter number of product units</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="mb-3">
+						<label class="form-label" for="update-price">Price(USD)</label>
+						<input class="form-control" type="tel" id="update-price" name="update-price">
+						<p class="error hidden">Please enter a valid dollar amount</p>
+					</div>
+				</div>
+				<button id="submit-update-product-button" type="submit"
+					class="btn btn-lg btn-outline-dark submit-button">Submit</button>
+			</div>
+		</form>
+	</div>
+	<div class="container-fluid p-0 m-0">
+		<footer>
+			<p>555 Book Rd<br>
+				City, PA 99999</p>
+			<h2>
+				Get <span style="color:white;">Reading!</span>
+			</h2>
+			<a href="product management.html">
+				<p>Product Management</p>
+			</a>
+		</footer>
+	</div>
+	<script type = "module" src="js/productManagement.js"></script>
+	<script src="js/products.json"></script>
+</body>
+
+</html>
