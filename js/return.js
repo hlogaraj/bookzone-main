@@ -1,3 +1,4 @@
+var orderedItems = JSON.parse(localStorage.getItem("orderedItems"));
 var ordersTable = document.getElementById("ordered-items");
 var rows = Array.from(ordersTable.children());
 var returnItems = new Array();
@@ -9,7 +10,13 @@ for (let row in rows) {
     let checkbox = children[0];
     let name = children[1];
     if (checkbox.checked == "true") {
-        returnItems.push(products[name]);
+        returnItems.push(products[name]); //add product object to return items array
+        for (let i = 0; i < orderedItems.length; i++) { //remove return item from ordered items
+            let item = orderedItems[i];
+            if (item.name == name) {
+                orderedItems.splice(i, 1);
+            }
+        }
     }
 }
 console.log(returnItems);
