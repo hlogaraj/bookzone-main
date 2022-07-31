@@ -1,13 +1,13 @@
 var orderedItems = JSON.parse(localStorage.getItem("orderedItems"));
 var ordersTable = document.getElementById("ordered-items");
-var rows = Array.from(ordersTable.childNodes());
+var rows = Array.from(ordersTable.childNodes);
 rows.splice(0,1);
 var returnItems = new Array();
 
 var products;
 
 for (let row in rows) {
-    let children = row.childNodes();
+    let children = row.childNodes;;
     let checkbox = children[0];
     let name = children[1];
     if (checkbox.checked == "true") {
