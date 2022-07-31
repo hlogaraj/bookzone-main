@@ -9,7 +9,7 @@ var rows = Array.from(ordersTable.childNodes);
 rows.splice(0, 1); //remove row of headers
 var returnItems = new Array();
 
-returnButton.addEventListener("click", returnItems)
+returnButton.addEventListener("click", returnItems);
 
 var products;
 
