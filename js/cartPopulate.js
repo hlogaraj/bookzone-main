@@ -1,4 +1,4 @@
-var cartItems = JSON.parse(localStorage.getItem("carttems"));
+var cartItems = JSON.parse(localStorage.getItem("cartItems"));
 
 var products = JSON.parse(localStorage.getItem("products"));
 
