@@ -59,23 +59,27 @@ textConsentField.checked = textConsent;
 
 
 function enableForm(e) {;
-    let fields = document.querySelectorAll(input);
-    for (let i = 0; i < fields.length; i++) { //unlock fields
-        if (fields[i].disabled == "true") {
-            fields[i].disabled = "false";
-        }
-    }
+    firstNameField.disabled = false;
+    lastNameField.disabled = false;
+    streetAddressField.disabled = false;
+    cityField.disabled = false;
+    stateField.disabled = false;
+    zipCodeField.disabled = false;
+    phoneNumberField.disabled = false;
+    textConsentField.disabled = false;
     editButton.style.display = "none";
     saveButton.style.display = "block";
 }
 
 function disableForm() {;
-    let fields = document.querySelectorAll(input);
-    for (let i = 0; i < fields.length; i++) { //lock fields
-        if (fields[i].disabled == "false") {
-            fields[i].disabled = "true";
-        }
-    }
+    firstNameField.disabled = true;
+    lastNameField.disabled = true;
+    streetAddressField.disabled = true;
+    cityField.disabled = true;
+    stateField.disabled = true;
+    zipCodeField.disabled = true;
+    phoneNumberField.disabled = true;
+    textConsentField.disabled = true;
     editButton.style.display = "block";
     saveButton.style.display = "none";
 }
