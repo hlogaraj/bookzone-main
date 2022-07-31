@@ -59,7 +59,7 @@ function returnItems(e) {
             }
         }
     }
-    localStorage.setItem('orderedItems', orderedItems;)
+    localStorage.setItem('orderedItems', JSON.stringify(orderedItems));
     location.reload();
 }
 
