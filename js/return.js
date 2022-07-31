@@ -37,7 +37,7 @@ if (localStorage.getItem("products") != null) {
 }
 
 function returnItems(e) {
-    console.log("button clicked");
+    console.log('button clicked');
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
         let children = Array.from(row.childNodes);
@@ -53,12 +53,13 @@ function returnItems(e) {
                     } else {
                         orderedItems.splice(j, 1); // remove return item from ordered items list if only 1
                     }
-                    console.log("return started");
-                    console.log("ordered items" + orderedItems);
+                    console.log('return started');
+                    console.log('ordered items' + orderedItems);
                 }
             }
         }
     }
+    localStorage.setItem('orderedItems', orderedItems;)
     location.reload();
 }
 
