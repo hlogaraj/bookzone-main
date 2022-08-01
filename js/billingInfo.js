@@ -24,7 +24,7 @@ if (localStorage.getItem("shoppers") != null) {
     } else {
         request = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    
+
     request.open('GET', 'js/shoppers.json');
     request.onreadystatechange = function () {
         if ((request.status === 200) && (request.readyState === 4)) {
@@ -60,7 +60,8 @@ phoneNumberField.value = phoneNumber;
 textConsentField.checked = textConsent;
 
 
-function enableForm(e) {;
+function enableForm(e) {
+    ;
     firstNameField.disabled = false;
     lastNameField.disabled = false;
     streetAddressField.disabled = false;
@@ -73,7 +74,8 @@ function enableForm(e) {;
     saveButton.style.display = "block";
 }
 
-function disableForm() {;
+function disableForm() {
+    ;
     firstNameField.disabled = true;
     lastNameField.disabled = true;
     streetAddressField.disabled = true;
@@ -104,107 +106,106 @@ zipCodeField.addEventListener("click", function () { hideError(zipCodeField); })
 phoneNumberField.addEventListener("click", function () { hideError(phoneNumberField); });
 
 function updateToJSON(shopperInfo) { //takes care of storing values of the input fields into a JSON object passed as an argument
-	var firstName = firstNameField.value;
-	var lastName = lastNameField.value;
-	var streetAddress = streetAddressField.value;
-	var city = cityField.value;
-	var state = stateField.value;
-	var zipCode = zipCodeField.value;
-	var email = emailField.value;
-	var phone = phoneNumberField.value;
-	var texts = textConsent.checked;
-	shopperInfo = {
-		"firstName": firstName,
-		"lastName": lastName,
-		"streetAddress": streetAddress,
-		"city": city,
-		"state": state,
-		"ZIP": zipCode,
-		"email": email,
-		"phoneNumber": phone,
-		"textConsent": texts
-	}
-    var shopper = {email : shopperInfo};
+    firstName = firstNameField.value;
+    lastName = lastNameField.value;
+    streetAddress = streetAddressField.value;
+    city = cityField.value;
+    state = stateField.value;
+    zipCode = zipCodeField.value;
+    phone = phoneNumberField.value;
+    texts = textConsent.checked;
+    shopperInfo = {
+        "firstName": firstName,
+        "lastName": lastName,
+        "streetAddress": streetAddress,
+        "city": city,
+        "state": state,
+        "ZIP": zipCode,
+        "email": email,
+        "phoneNumber": phone,
+        "textConsent": texts
+    }
+    var shopper = { email: shopperInfo };
     shoppers.push(shopper);
     localStorage.setItem("shoppers", JSON.stringify(shoppers));
     console.log("billing updated");
 }
 
 function validateShopper() {
-	let valid = true;
+    let valid = true;
 
-	valid = valid && validateName(firstNameField);
-	valid = valid && validateName(lastNameField);
-	valid = valid && validateName(cityField);
-	valid = valid && validateStreetAddress();
-	valid = valid && validateDropDown(stateField);
-	valid = valid && validateZipCode();
-	valid = valid && validatePhoneNumber();
-	flagName(firstNameField);
-	flagName(lastNameField);
-	flagName(cityField);
-	flagStreetAddress();
-	flagDropDown(stateField);
-	flagZipCode();
-	flagPhoneNumber();
+    valid = valid && validateName(firstNameField);
+    valid = valid && validateName(lastNameField);
+    valid = valid && validateName(cityField);
+    valid = valid && validateStreetAddress();
+    valid = valid && validateDropDown(stateField);
+    valid = valid && validateZipCode();
+    valid = valid && validatePhoneNumber();
+    flagName(firstNameField);
+    flagName(lastNameField);
+    flagName(cityField);
+    flagStreetAddress();
+    flagDropDown(stateField);
+    flagZipCode();
+    flagPhoneNumber();
 
     return valid;
 }
 
 function validateName(target) {
-	return /^[a-zA-Z\-\.\s]+$/.test(target.value);
+    return /^[a-zA-Z\-\.\s]+$/.test(target.value);
 }
 
 function flagName(target) {
-	if (!validateName(target)) {
-		showError(target);
-	}
+    if (!validateName(target)) {
+        showError(target);
+    }
 }
 
 function validateStreetAddress() {
-	return /^\d+\s[A-z]+\s[A-z]+/.test(streetAddressField.value);
+    return /^\d+\s[A-z]+\s[A-z]+/.test(streetAddressField.value);
 }
 
 function flagStreetAddress() {
-	if (!validateStreetAddress()) {
-		showError(streetAddressField);
-	}
+    if (!validateStreetAddress()) {
+        showError(streetAddressField);
+    }
 }
 
 function validateDropDown(field) {
-	return (field.value != "none");
+    return (field.value != "none");
 }
 
 function flagDropDown(field) {
-	if (!validateDropDown(field)) {
-		showError(field);
-	}
+    if (!validateDropDown(field)) {
+        showError(field);
+    }
 }
 
 function validateZipCode() {
-	return /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipCodeField.value);
+    return /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipCodeField.value);
 }
 
 function flagZipCode() {
-	if (!validateZipCode()) {
-		showError(zipCodeField);
-	}
+    if (!validateZipCode()) {
+        showError(zipCodeField);
+    }
 }
 
 function validatePhoneNumber() {
-	return (phoneNumberField.value.length == 0 || (phoneNumberField.value.length == 10 && /^\d+$/.test(phoneNumberField.value)));
+    return (phoneNumberField.value.length == 0 || (phoneNumberField.value.length == 10 && /^\d+$/.test(phoneNumberField.value)));
 }
 
 function flagPhoneNumber() {
-	if (!validatePhoneNumber()) {
-		showError(phoneNumberField);
-	}
+    if (!validatePhoneNumber()) {
+        showError(phoneNumberField);
+    }
 }
 
 function showError(element) {
-	element.parentNode.getElementsByClassName("error")[0].classList.remove("hidden");
+    element.parentNode.getElementsByClassName("error")[0].classList.remove("hidden");
 }
 
 function hideError(element) {
-	element.parentNode.getElementsByClassName("error")[0].classList.add("hidden");
+    element.parentNode.getElementsByClassName("error")[0].classList.add("hidden");
 }
