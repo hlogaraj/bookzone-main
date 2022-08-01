@@ -64,7 +64,7 @@ function returnItems(e) {
     rows.splice(0, 1);                         //remove row of headers
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
-        let checkbox = row.childNodes[0].childNodes[0];
+        let checkbox = row.childNodes[0].querySelector("input");
         let itemName = row.childNodes[1].innerHTML;
         if (checkbox.checked == "true") {
             console.log("checkmark detected");
