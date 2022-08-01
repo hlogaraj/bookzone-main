@@ -3,8 +3,6 @@ var products;
 var returnButton = document.getElementById("return-button");
 var returningItems = new Array();
 var ordersTable = document.getElementById("ordered-items");
-var rows = Array.from(ordersTable.childNodes);
-rows.splice(0, 1); //remove row of headers
 
 returnButton.addEventListener("click", returnItems);
 
@@ -63,6 +61,8 @@ if (orderedItems != null) {
 
 function returnItems(e) {
     for (let i = 0; i < rows.length; i++) {
+        var rows = Array.from(ordersTable.childNodes);
+        rows.splice(0, 1);                         //remove row of headers
         let row = rows[i];
         let children = Array.from(row.childNodes);
         let checkboxContainer = Array.from(children[0].childNodes);
