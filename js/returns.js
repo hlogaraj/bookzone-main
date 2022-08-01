@@ -61,7 +61,7 @@ if (orderedItems != null) {
 
 function returnItems(e) {
     for (let i = 0; i < rows.length; i++) {
-        var rows = Array.from(ordersTable.childNodes);
+        let rows = Array.from(ordersTable.childNodes);
         rows.splice(0, 1);                         //remove row of headers
         let row = rows[i];
         let children = Array.from(row.childNodes);
