@@ -65,8 +65,8 @@ function returnItems(e) {
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
         let children = Array.from(row.childNodes);
-        let checkbox = children[0];
-        let itemName = children[1];
+        let checkbox = children[0].childNodes[0];
+        let itemName = children[1].childNodes[0];
         if (checkbox.checked == "true") {
             console.log("checkmark detected");
             returningItems.push(products[itemName]); //add product object to return items array
