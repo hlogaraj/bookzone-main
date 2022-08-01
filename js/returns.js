@@ -51,7 +51,7 @@ if (orderedItems != null) {
             let priceData = document.createElement("td");
             priceData.classList.add("price-data");
             priceData.innerHTML = "$" + price;
-            row.appendChild(document.createElement("td").appendChild(checkmark));
+            row.appendChild(checkmark);
             row.appendChild(nameData);
             row.appendChild(priceData);
             table.appendChild(row);
@@ -64,7 +64,7 @@ function returnItems(e) {
     rows.splice(0, 1);                         //remove row of headers
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
-        let checkbox = row.firstChild.firstChild;
+        let checkbox = row.firstChild;
         let itemName = row.childNodes[1].innerHTML;
         if (checkbox.checked == "true") {
             console.log("checkmark detected");
