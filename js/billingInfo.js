@@ -75,7 +75,6 @@ function enableForm(e) {
 }
 
 function disableForm() {
-    ;
     firstNameField.disabled = true;
     lastNameField.disabled = true;
     streetAddressField.disabled = true;
