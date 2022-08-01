@@ -60,9 +60,9 @@ if (orderedItems != null) {
 }
 
 function returnItems(e) {
+    let rows = Array.from(ordersTable.childNodes);
+    rows.splice(0, 1);                         //remove row of headers
     for (let i = 0; i < rows.length; i++) {
-        let rows = Array.from(ordersTable.childNodes);
-        rows.splice(0, 1);                         //remove row of headers
         let row = rows[i];
         let children = Array.from(row.childNodes);
         let checkboxContainer = Array.from(children[0].childNodes);
