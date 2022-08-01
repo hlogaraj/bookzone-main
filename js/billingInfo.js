@@ -87,7 +87,8 @@ function disableForm() {;
 }
 
 function updateBilling(e) {
-    if (validateShopper == true) {
+    validateShopper();
+    if (validateShopper() == true) {
         updateToJSON(shopperInfo); //save new info to JSON string
         disableForm();
     }
