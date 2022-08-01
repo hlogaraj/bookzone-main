@@ -89,6 +89,7 @@ function disableForm() {;
 function updateBilling(e) {
     validateShopper();
     if (validateShopper() == true) {
+        console.log('validated');
         updateToJSON(shopperInfo); //save new info to JSON string
         disableForm();
     }
@@ -123,7 +124,8 @@ function updateToJSON(shopperInfo) { //takes care of storing values of the input
 		"phoneNumber": phone,
 		"textConsent": texts
 	}
-    shoppers[email] = shopperInfo;
+    var shopper = {email : shopperInfo};
+    shoppers.push(shopper);
     localStorage.setItem("shoppers", JSON.stringify(shoppers));
     console.log("billing updated");
 }

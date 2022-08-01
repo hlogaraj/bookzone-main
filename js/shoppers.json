@@ -3,7 +3,7 @@
         "example@example.com" : {
             "firstName": "firstName",
 		    "lastName": "lastName",
-		    "streetAddress": "123 streetAddress",
+		    "streetAddress": "123 streetAddress ln",
 		    "city": "city",
 		    "state": "PA",
 		    "ZIP": "99999",

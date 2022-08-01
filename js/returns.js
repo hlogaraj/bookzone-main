@@ -54,8 +54,8 @@ if (orderedItems != null) {
             let priceData = document.createElement("td");
             priceData.innerHTML = "$" + price;
             row.appendChild(document.createElement("td").appendChild(checkmark));
-            row.appendChild(document.createElement("td").appendChild(nameData));
-            row.appendChild(document.createElement("td").appendChild(priceData));
+            row.appendChild(nameData);
+            row.appendChild(priceData);
             table.appendChild(row);
         }
     }
@@ -65,8 +65,9 @@ function returnItems(e) {
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
         let children = Array.from(row.childNodes);
-        let checkbox = children[0].childNodes[0];
-        let itemName = children[1].childNodes[0];
+        let checkboxContainer = Array.from(children[0].childNodes);
+        let checkbox = checkboxContainer[0];
+        let itemName = children[1].innerHTML;
         if (checkbox.checked == "true") {
             console.log("checkmark detected");
             returningItems.push(products[itemName]); //add product object to return items array
