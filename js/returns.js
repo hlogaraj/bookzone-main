@@ -48,8 +48,10 @@ if (orderedItems != null) {
             checkmark.style.verticalAlign = "middle";
             checkmark.id = name + String(j);
             let nameData = document.createElement("td");
+            nameData.classList.add("name-data");
             nameData.innerHTML = name;
             let priceData = document.createElement("td");
+            priceData.classList.add("price-data");
             priceData.innerHTML = "$" + price;
             row.appendChild(document.createElement("td").appendChild(checkmark));
             row.appendChild(nameData);
@@ -64,10 +66,8 @@ function returnItems(e) {
     rows.splice(0, 1);                         //remove row of headers
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
-        let children = Array.from(row.childNodes);
-        let checkboxContainer = Array.from(children[0].childNodes);
-        let checkbox = checkboxContainer[0];
-        let itemName = children[1].innerHTML;
+        let checkbox = row.querySelector("input");
+        let itemName = row.querySelector(".name-data").innerHTML;
         if (checkbox.checked == "true") {
             console.log("checkmark detected");
             returningItems.push(products[itemName]); //add product object to return items array
