@@ -64,8 +64,8 @@ function returnItems(e) {
     rows.splice(0, 1);                         //remove row of headers
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
-        let checkbox = row.children[0].children[0];
-        let itemName = row.children[1].innerHTML;
+        let checkbox = row.firstChild.firstChild;
+        let itemName = row.childNodes[1].innerHTML;
         if (checkbox.checked == "true") {
             console.log("checkmark detected");
             returningItems.push(products[itemName]); //add product object to return items array
