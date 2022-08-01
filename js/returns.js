@@ -66,8 +66,9 @@ function returnItems(e) {
     rows.splice(0, 1);                         //remove row of headers
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
+        let data = row.querySelectorAll("td");
         let checkbox = row.querySelector("input");
-        let itemName = row.querySelector(".name-data").innerHTML;
+        let itemName = data[1].innerHTML;
         if (checkbox.checked == "true") {
             console.log("checkmark detected");
             returningItems.push(products[itemName]); //add product object to return items array
