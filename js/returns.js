@@ -67,18 +67,14 @@ function returnItems(e) {
         let checkbox = row.firstChild;
         let itemName = row.childNodes[1].innerHTML;
         if (checkbox.checked == true) {
-            console.log("checkmark detected");
             returningItems.push(products[itemName]); //add product object to return items array
             for (let j = 0; j < orderedItems.length; j++) {
                 let item = orderedItems[j];
                 if (item.name == itemName) {
-                    console.log("ordered item found");
                     if (item.quantity > 1) {
                         item.quantity -= 1; //decrement from ordered quantity if multiple ordered
-                        console.log("ordered item decremented");
                     } else {
                         orderedItems.splice(j, 1); // remove return item from ordered items list if only 1
-                        console.log("ordered item deleted");
                     }
                 }
             }

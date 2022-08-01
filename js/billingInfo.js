@@ -112,7 +112,7 @@ function updateToJSON(shopperInfo) { //takes care of storing values of the input
     state = stateField.value;
     zipCode = zipCodeField.value;
     phone = phoneNumberField.value;
-    texts = textConsent.checked;
+    texts = textConsentField.checked;
     shopperInfo = {
         "firstName": firstName,
         "lastName": lastName,
