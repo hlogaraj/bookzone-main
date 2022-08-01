@@ -32,13 +32,11 @@ if (localStorage.getItem("products") != null) {
 if (orderedItems != null) {
     console.log("ordered items found");
     let table = document.getElementById("ordered-items");
-    var totalPrice = 0;
     for (let i = 0; i < orderedItems.length; i++) {
         let item = orderedItems[i];
         let name = String(item.name);
         let quantity = parseInt(item.quantity);
         let price = parseFloat(item.price);
-
         for (let j = 0; j < quantity; j++) {
             let row = document.createElement("tr");
             row.id = name;
@@ -66,9 +64,8 @@ function returnItems(e) {
     rows.splice(0, 1);                         //remove row of headers
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
-        let data = row.querySelectorAll("td");
-        let checkbox = row.querySelector("input");
-        let itemName = data[1].innerHTML;
+        let checkbox = rows.childNodes[0].childNodes[0];
+        let itemName = rows.childNodes[1].innerHTML;
         if (checkbox.checked == "true") {
             console.log("checkmark detected");
             returningItems.push(products[itemName]); //add product object to return items array
